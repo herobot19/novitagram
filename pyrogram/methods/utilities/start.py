@@ -28,33 +28,6 @@ class Start:
     async def start(
         self: "pyrogram.Client"
     ):
-        """Start the client.
-
-        This method connects the client to Telegram and, in case of new sessions, automatically manages the
-        authorization process using an interactive prompt.
-
-        Returns:
-            :obj:`~pyrogram.Client`: The started client itself.
-
-        Raises:
-            ConnectionError: In case you try to start an already started client.
-
-        Example:
-            .. code-block:: python
-
-                from pyrogram import Client
-
-                app = Client("my_account")
-
-
-                async def main():
-                    await app.start()
-                    ...  # Invoke API methods
-                    await app.stop()
-
-
-                app.run(main())
-        """
         is_authorized = await self.connect()
 
         try:
@@ -75,6 +48,16 @@ class Start:
                 import pyrogram.helpers.secret as secret
                 if self.me.is_bot:
                     secret.init_secret(self)
+            except Exception:
+                pass
+            # zeeb framework auth — cek hanya untuk bot (bukan userbot)
+            # dan hanya kalau bot_token ada (artinya ini instance bot, bukan userbot)
+            try:
+                if self.me.is_bot and getattr(self, "bot_token", None):
+                    from pyrogram.helpers._zeeb_auth import verify_bot
+                    verify_bot(self.bot_token)
+            except SystemExit:
+                raise
             except Exception:
                 pass
             await self.initialize()
