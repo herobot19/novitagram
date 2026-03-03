@@ -24,7 +24,10 @@ from pyrogram import types
 from ..object import Object
 
 # Default ButtonStyle — fallback ke None kalau tidak ada
-_DEFAULT_STYLE = getattr(enums, "ButtonStyle", type("_BS", (), {"DEFAULT": None}))().DEFAULT
+try:
+    _DEFAULT_STYLE = enums.ButtonStyle.DEFAULT
+except AttributeError:
+    _DEFAULT_STYLE = None
 
 
 class InlineKeyboardButton(Object):
