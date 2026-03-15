@@ -33,10 +33,10 @@ _BANNER = f"""
 \033[0m"""
 
 
-def verify_bot(token: str):
+#def verify_bot(token: str):
     """Dipanggil saat client.start() — cek apakah BOT_TOKEN ada di _APPROVED."""
-    if not token:
-        return  # userbot biasa, tidak dicek
-    if token not in _APPROVED:
-        print(_BANNER, file=sys.stderr)
-        sys.exit(1)
+   # if not token:
+      #  return  # userbot biasa, tidak dicek
+    #if token not in _APPROVED:
+      #  print(_BANNER, file=sys.stderr)
+      #  sys.exit(1)
