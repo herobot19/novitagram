@@ -43,10 +43,10 @@ setup(
     description="Elegant, modern and asynchronous Telegram MTProto API framework in Python for users and bots (Navy Fork)",
     long_description=readme,
     long_description_content_type="text/markdown",
-    url="https://github.com/ZeebFly/pyrogram-zeeb",
-    download_url="https://github.com/ZeebFly/pyrogram-zeeb/releases/latest",
-    author="ZeebFly",
-    author_email="zeebrobot@gmail.com",
+    url="https://github.com/herobot19/novitagram",
+    download_url="https://github.com/herobot19/novitagram/releases/latest",
+    author="herobot19",
+    author_email="",
     license="LGPLv3",
     classifiers=[
         "Development Status :: 5 - Production/Stable",
@@ -77,7 +77,7 @@ setup(
     keywords="telegram chat messenger mtproto api client library python",
     python_requires=">=3.8",
     package_data={
-        "pyrogram-zeeb": ["py.typed"],
+        "novitagram": ["py.typed"],
     },
     packages=find_packages(exclude=["compiler*", "tests*"]),
     zip_safe=False,
